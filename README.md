@@ -1,4 +1,4 @@
-#package
-scikit-learn
-numpy
-opencv
+# package
+- scikit-learn
+- numpy
+- opencv
