@@ -2,6 +2,8 @@ import sys
 import cv2
 import numpy as np
 from sklearn.metrics import mean_squared_error
+import decimal
+
 
 args = sys.argv
 
@@ -26,7 +28,11 @@ while True:
 # print (v)
   v_mean = np.full_like(v,np.mean(v))
   rmse = mean_squared_error(v, v_mean, squared = False)
-  print ('mean:', 255-np.mean(v), ' rms: ', rmse)
+
+  decimal.getcontext().prec = 3
+  d_mean = decimal.Decimal(255-np.mean(v))
+  d_rmse = decimal.Decimal(rmse)
+  print ('mean: ' , +d_mean, ' rms: ', +d_rmse)
   print ('')
 
 cv2.waitKey(0)
